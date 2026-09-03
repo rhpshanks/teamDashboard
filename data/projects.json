@@ -1,0 +1,158 @@
+{
+  "projects": [
+    {
+      "id": "battle-order",
+      "name": "Battle Order: Merge Defense TD",
+      "short": "Battle Order",
+      "genre": "Strategy",
+      "downloads": "50K+",
+      "phase": "live",
+      "bundleId": "com.Glitch.BattleOrder",
+      "kind": "game",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.Glitch.BattleOrder"
+    },
+    {
+      "id": "puzzle-warrior",
+      "name": "Puzzle Warrior: Dungeon Fight",
+      "short": "Puzzle Warrior",
+      "genre": "Role Playing",
+      "downloads": "50K+",
+      "phase": "live",
+      "bundleId": "com.glitchtech.puzzlewarrior.rpg",
+      "kind": "game",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.glitchtech.puzzlewarrior.rpg"
+    },
+    {
+      "id": "queue-panic",
+      "name": "Queue Panic: Sorting Puzzle",
+      "short": "Queue Panic",
+      "genre": "Casual",
+      "downloads": "100+",
+      "phase": "soft-launch",
+      "bundleId": "com.glitchtech.queuepanic.sortinggame",
+      "kind": "game",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.glitchtech.queuepanic.sortinggame"
+    },
+    {
+      "id": "water-flow",
+      "name": "Water Flow: Color Sort Games",
+      "short": "Water Flow",
+      "genre": "Puzzle",
+      "downloads": "100K+",
+      "phase": "live",
+      "bundleId": "com.glitchtech.waterwalls.games",
+      "kind": "game",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.glitchtech.waterwalls.games"
+    },
+    {
+      "id": "balloon-fill",
+      "name": "Balloon Fill: Color Match Game",
+      "short": "Balloon Fill",
+      "genre": "Casual",
+      "downloads": "10K+",
+      "phase": "live",
+      "bundleId": "com.glitchtech.balloon.game",
+      "kind": "game",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.glitchtech.balloon.game"
+    },
+    {
+      "id": "blender-jam",
+      "name": "Blender Jam: Juice Match Game",
+      "short": "Blender Jam",
+      "genre": "Puzzle",
+      "downloads": "500+",
+      "phase": "live",
+      "bundleId": "com.glitchtech.fruitjam.juicepuzzle",
+      "kind": "game",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.glitchtech.fruitjam.juicepuzzle"
+    },
+    {
+      "id": "block-race",
+      "name": "Block Race: Block Puzzle Games",
+      "short": "Block Race",
+      "genre": "Casual",
+      "downloads": "500+",
+      "phase": "live",
+      "bundleId": "com.tetrisrun.block.puzzle",
+      "kind": "game",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.tetrisrun.block.puzzle"
+    },
+    {
+      "id": "pirates-attack",
+      "name": "Pirates Attack: Gold Defense",
+      "short": "Pirates Attack",
+      "genre": "Casual",
+      "downloads": "10K+",
+      "phase": "live",
+      "bundleId": "com.glitchtech.piratesattack.defense",
+      "kind": "game",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.glitchtech.piratesattack.defense"
+    },
+    {
+      "id": "ice-cream-spin",
+      "name": "Ice Cream Spin: Sorting Game",
+      "short": "Ice Cream Spin",
+      "genre": "Puzzle",
+      "downloads": "100+",
+      "phase": "live",
+      "bundleId": "com.glitchtech.icecream.match.sortgame",
+      "kind": "game",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.glitchtech.icecream.match.sortgame"
+    },
+    {
+      "id": "sword-knight",
+      "name": "Sword Knight: Idle RPG Games",
+      "short": "Sword Knight",
+      "genre": "Role Playing",
+      "downloads": "100+",
+      "phase": "live",
+      "bundleId": "com.glitchtech.swordknight",
+      "kind": "game",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.glitchtech.swordknight"
+    },
+    {
+      "id": "color-room",
+      "name": "Color Room Puzzle: Escape Game",
+      "short": "Color Room",
+      "genre": "Puzzle",
+      "downloads": "100+",
+      "phase": "soft-launch",
+      "bundleId": "com.glitchtech.colorrooms.puzzlegame",
+      "kind": "game",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.glitchtech.colorrooms.puzzlegame"
+    },
+    {
+      "id": "color-car",
+      "name": "Color Car Escape: Bus Jam 3D",
+      "short": "Color Car",
+      "genre": "Puzzle",
+      "downloads": "100+",
+      "phase": "live",
+      "bundleId": "com.glitchtech.coloredescape.carjam",
+      "kind": "game",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.glitchtech.coloredescape.carjam"
+    },
+    {
+      "id": "publisher-outreach",
+      "name": "Publisher Outreach",
+      "short": "Publisher Outreach",
+      "genre": "Business Development",
+      "downloads": null,
+      "phase": "active",
+      "bundleId": null,
+      "kind": "workstream",
+      "storeUrl": null
+    },
+    {
+      "id": "store-aso",
+      "name": "Store Presence & ASO",
+      "short": "Store & ASO",
+      "genre": "Growth",
+      "downloads": null,
+      "phase": "active",
+      "bundleId": null,
+      "kind": "workstream",
+      "storeUrl": null
+    }
+  ]
+}

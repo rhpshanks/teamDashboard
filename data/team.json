@@ -1,0 +1,67 @@
+{
+  "members": [
+    {
+      "id": "m-alex",
+      "name": "Alex",
+      "role": "Lead Unity Developer",
+      "initials": "AL",
+      "disciplines": [
+        "dev"
+      ],
+      "active": true
+    },
+    {
+      "id": "m-sam",
+      "name": "Sam",
+      "role": "Unity Developer",
+      "initials": "SA",
+      "disciplines": [
+        "dev"
+      ],
+      "active": true
+    },
+    {
+      "id": "m-noor",
+      "name": "Noor",
+      "role": "2D Artist",
+      "initials": "NO",
+      "disciplines": [
+        "art"
+      ],
+      "active": true
+    },
+    {
+      "id": "m-jordan",
+      "name": "Jordan",
+      "role": "Game Designer",
+      "initials": "JO",
+      "disciplines": [
+        "design",
+        "dev"
+      ],
+      "active": true
+    },
+    {
+      "id": "m-riley",
+      "name": "Riley",
+      "role": "QA & Live Ops",
+      "initials": "RI",
+      "disciplines": [
+        "qa",
+        "liveops"
+      ],
+      "active": true
+    },
+    {
+      "id": "m-zain",
+      "name": "Zain",
+      "role": "Marketing & Publishing",
+      "initials": "ZA",
+      "disciplines": [
+        "marketing",
+        "biz"
+      ],
+      "active": true
+    }
+  ]
+}
