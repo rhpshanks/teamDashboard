@@ -112,6 +112,13 @@ export function OverviewView(p: ViewProps) {
       .sort((a, b) => b.value - a.value);
   }, [entries]);
 
+  /* Person-days actually worked — averaging over the whole team × every
+     calendar day would understate the load with weekends in the range. */
+  const personDays = useMemo(
+    () => new Set(entries.map((e) => `${e.date}|${e.memberId}`)).size,
+    [entries]
+  );
+
   const split = statusSplit(entries);
   const sparkTasks = series.slice(-12).map((d) => d.tasks);
   const sparkHours = series.slice(-12).map((d) => d.hours);
@@ -242,6 +249,31 @@ export function OverviewView(p: ViewProps) {
 
         <Card title="Status mix" sub={`Across ${entries.length} logged tasks`}>
           <StatusMix split={split} total={entries.length} />
+
+          <div
+            className="metric-row"
+            style={{
+              marginTop: 18,
+              paddingTop: 16,
+              borderTop: "1px solid var(--border)",
+              justifyContent: "space-between",
+            }}
+          >
+            <div className="metric">
+              <span className="metric-v">
+                {entries.length ? Math.round((done / entries.length) * 100) : 0}%
+              </span>
+              <span className="metric-l">completed</span>
+            </div>
+            <div className="metric">
+              <span className="metric-v">{(entries.length / days.length).toFixed(1)}</span>
+              <span className="metric-l">tasks logged per day</span>
+            </div>
+            <div className="metric">
+              <span className="metric-v">{personDays ? hoursFmt(Math.round((hours / personDays) * 10) / 10) : "—"}</span>
+              <span className="metric-l">hours per person per day</span>
+            </div>
+          </div>
         </Card>
       </div>
 
