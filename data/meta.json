@@ -2,7 +2,6 @@
   "studio": "GlitchTech",
   "boardTitle": "Team Activity Dashboard",
   "asOf": "2026-09-04",
-  "sampleData": true,
-  "timezone": "Asia/Karachi",
-  "note": "Member names are placeholders. Replace them in data/team.json, then set sampleData to false."
+  "sampleData": false,
+  "timezone": "Asia/Karachi"
 }

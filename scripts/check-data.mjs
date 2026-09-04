@@ -12,7 +12,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const read = (f) => JSON.parse(readFileSync(join(root, "data", f), "utf8"));
 
 const STATUSES = ["done", "in-progress", "blocked", "planned"];
-const CATEGORIES = ["dev", "art", "design", "qa", "liveops", "marketing", "biz"];
+const CATEGORIES = ["dev", "ops", "art", "audio", "design", "qa", "liveops", "marketing", "biz"];
 
 const errors = [];
 const warnings = [];
@@ -43,13 +43,16 @@ for (const [i, e] of entries.entries.entries()) {
   if (!projectIds.has(e.projectId)) errors.push(`${at}: unknown projectId "${e.projectId}"`);
   if (!STATUSES.includes(e.status)) errors.push(`${at}: status must be one of ${STATUSES.join(", ")}`);
   if (!CATEGORIES.includes(e.category)) errors.push(`${at}: category must be one of ${CATEGORIES.join(", ")}`);
-  if (typeof e.hours !== "number" || e.hours <= 0) errors.push(`${at}: hours must be a positive number`);
+  if (e.hours !== undefined && (typeof e.hours !== "number" || e.hours <= 0))
+    errors.push(`${at}: hours is optional, but when present must be a positive number`);
   if (!e.title || !e.title.trim()) errors.push(`${at}: title is empty`);
 }
 
 const newest = entries.entries.reduce((a, e) => (e.date > a ? e.date : a), "0000-00-00");
-if (meta.asOf !== newest) {
-  warnings.push(`meta.asOf is "${meta.asOf}" but the newest entry is "${newest}" — the board will show ${newest}.`);
+// asOf is the board's "today". It may legitimately run ahead of the newest
+// entry (nobody logged anything yet today); it must never lag behind one.
+if (meta.asOf < newest) {
+  warnings.push(`meta.asOf is "${meta.asOf}" but there are entries dated "${newest}" — bump asOf, or the board will silently use ${newest} as today.`);
 }
 if (meta.sampleData) {
   warnings.push('meta.sampleData is true — the board shows a "Sample data" pill. Set it to false once the data is real.');
@@ -58,7 +61,7 @@ if (meta.sampleData) {
 const perDay = new Map();
 for (const e of entries.entries) {
   const k = `${e.date}|${e.memberId}`;
-  perDay.set(k, (perDay.get(k) ?? 0) + e.hours);
+  perDay.set(k, (perDay.get(k) ?? 0) + (e.hours ?? 0));
 }
 for (const [k, h] of perDay) {
   if (h > 14) warnings.push(`${k.replace("|", " — ")}: ${h}h logged in one day, which looks like a typo.`);

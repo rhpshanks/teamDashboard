@@ -40,6 +40,13 @@ export default function Dashboard({ data }: { data: DashboardData }) {
   const [logMode, setLogMode] = useState<"feed" | "table">("feed");
 
   const today = meta.asOf;
+
+  /* The freshness pill reports how current the DATA is, not what asOf was set
+     to — "updated today" would be a lie on a day nobody logged anything. */
+  const latestEntry = useMemo(
+    () => entries.reduce((a, e) => (e.date > a ? e.date : a), ""),
+    [entries]
+  );
   const earliest = useMemo(
     () => entries.reduce((a, e) => (e.date < a ? e.date : a), today),
     [entries, today]
@@ -133,9 +140,9 @@ export default function Dashboard({ data }: { data: DashboardData }) {
 
           {meta.sampleData && <span className="sample-pill">Sample data</span>}
 
-          <span className="freshness" title={fmtLong(today)}>
+          <span className="freshness" title={`Most recent entry: ${fmtLong(latestEntry)}`}>
             <span className="pulse" aria-hidden="true" />
-            Updated {relativeDay(today, today).toLowerCase()} · {fmtLong(today)}
+            Data through {relativeDay(latestEntry, today).toLowerCase()} · {fmtLong(latestEntry)}
           </span>
 
           <nav className="tabs" role="tablist" aria-label="Dashboard sections">

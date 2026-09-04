@@ -79,6 +79,15 @@ export function hoursFmt(h: number): string {
 
 /* ---------------- aggregation ---------------- */
 
+/** True when at least one entry in the set records hours. Daily updates
+ *  usually arrive as prose, so most of the board measures effort in tasks and
+ *  only switches to hours when they are actually recorded. */
+export function hasHours(entries: Entry[]): boolean {
+  return entries.some((e) => typeof e.hours === "number" && e.hours > 0);
+}
+
+const hrs = (e: Entry) => e.hours ?? 0;
+
 export interface DayPoint {
   date: string;
   tasks: number;
@@ -94,7 +103,7 @@ export function byDay(entries: Entry[], days: string[]): DayPoint[] {
     const slot = map.get(e.date);
     if (!slot) continue;
     slot.tasks += 1;
-    slot.hours += e.hours;
+    slot.hours += hrs(e);
     if (e.status === "done") slot.done += 1;
     slot.people.add(e.memberId);
   }
@@ -167,7 +176,7 @@ export function rollupProjects(
     const r = index.get(e.projectId);
     if (!r) continue;
     r.tasks += 1;
-    r.hours += e.hours;
+    r.hours += hrs(e);
     if (e.status === "done") r.done += 1;
     if (e.status === "blocked") r.blocked += 1;
     if (e.status === "in-progress") r.active += 1;
@@ -190,7 +199,10 @@ export interface MemberRoll {
   blocked: number;
   active: number;
   projects: string[];
+  /** Hours per day, and task counts per day — the heatmap uses whichever the
+   *  data actually supports. */
   perDay: number[];
+  perDayTasks: number[];
   lastActive: string | null;
 }
 
@@ -203,21 +215,26 @@ export function rollupMembers(
   return members.map((m) => {
     const mine = entries.filter((e) => e.memberId === m.id);
     const perDay = new Array(days.length).fill(0);
+    const perDayTasks = new Array(days.length).fill(0);
     for (const e of mine) {
       const i = dayIndex.get(e.date);
-      if (i !== undefined) perDay[i] += e.hours;
+      if (i !== undefined) {
+        perDay[i] += hrs(e);
+        perDayTasks[i] += 1;
+      }
     }
     const projects = [...new Set(mine.map((e) => e.projectId))];
     const dates = mine.map((e) => e.date).sort();
     return {
       member: m,
       tasks: mine.length,
-      hours: Math.round(mine.reduce((s, e) => s + e.hours, 0) * 10) / 10,
+      hours: Math.round(mine.reduce((s, e) => s + hrs(e), 0) * 10) / 10,
       done: mine.filter((e) => e.status === "done").length,
       blocked: mine.filter((e) => e.status === "blocked").length,
       active: mine.filter((e) => e.status === "in-progress").length,
       projects,
       perDay: perDay.map((h) => Math.round(h * 10) / 10),
+      perDayTasks,
       lastActive: dates.length ? dates[dates.length - 1] : null,
     };
   });

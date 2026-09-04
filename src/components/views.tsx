@@ -17,6 +17,7 @@ import {
   byDay,
   compact,
   fmtLong,
+  hasHours,
   hoursFmt,
   pctChange,
   relativeDay,
@@ -62,6 +63,13 @@ const projectOf = (projects: Project[], id: string) => projects.find((p) => p.id
 export function OverviewView(p: ViewProps) {
   const { entries, prevEntries, members, projects, days, today } = p;
 
+  /* Daily updates usually arrive as prose with no time tracking, so effort is
+     measured in tasks unless hours were actually recorded. */
+  const useHours = hasHours(entries);
+  const effortOf = (tasks: number, hrs: number) => (useHours ? hrs : tasks);
+  const unit = useHours ? "h" : "";
+  const effortWord = useHours ? "Hours" : "Tasks";
+
   const series = useMemo(() => byDay(entries, days), [entries, days]);
 
   const latestDay = useMemo(() => {
@@ -75,8 +83,8 @@ export function OverviewView(p: ViewProps) {
 
   const done = entries.filter((e) => e.status === "done").length;
   const prevDone = prevEntries.filter((e) => e.status === "done").length;
-  const hours = entries.reduce((s, e) => s + e.hours, 0);
-  const prevHours = prevEntries.reduce((s, e) => s + e.hours, 0);
+  const hours = entries.reduce((s, e) => s + (e.hours ?? 0), 0);
+  const prevHours = prevEntries.reduce((s, e) => s + (e.hours ?? 0), 0);
   const blockers = entries.filter((e) => e.status === "blocked");
   const prevBlockers = prevEntries.filter((e) => e.status === "blocked").length;
   const activeProjects = new Set(entries.map((e) => e.projectId)).size;
@@ -89,20 +97,21 @@ export function OverviewView(p: ViewProps) {
     const bars = top.map((r) => ({
       id: r.project.id,
       label: r.project.short,
-      value: r.hours,
+      value: effortOf(r.tasks, r.hours),
     }));
     if (rest.length) {
       bars.push({
         id: "__other",
         label: `Other (${rest.length} project${rest.length > 1 ? "s" : ""})`,
-        value: Math.round(rest.reduce((s, r) => s + r.hours, 0) * 10) / 10,
+        value:
+          Math.round(rest.reduce((s, r) => s + effortOf(r.tasks, r.hours), 0) * 10) / 10,
       });
     }
     return bars;
-  }, [entries, projects]);
+  }, [entries, projects, useHours]);
 
   const disciplineBars: BarDatum[] = useMemo(() => {
-    const m = sumBy(entries, (e) => e.category, (e) => e.hours);
+    const m = sumBy(entries, (e) => e.category, (e) => (useHours ? (e.hours ?? 0) : 1));
     return [...m.entries()]
       .map(([k, v]) => ({
         id: k,
@@ -110,7 +119,7 @@ export function OverviewView(p: ViewProps) {
         value: Math.round(v * 10) / 10,
       }))
       .sort((a, b) => b.value - a.value);
-  }, [entries]);
+  }, [entries, useHours]);
 
   /* Person-days actually worked — averaging over the whole team × every
      calendar day would understate the load with weekends in the range. */
@@ -159,9 +168,13 @@ export function OverviewView(p: ViewProps) {
                   key={id}
                   className="chip"
                   onClick={() => p.onSelectMember(id)}
-                  title={`${m.name} — ${mine.length} task${mine.length === 1 ? "" : "s"}, ${hoursFmt(
-                    mine.reduce((s, e) => s + e.hours, 0)
-                  )}h`}
+                  title={`${m.name} — ${mine.length} task${
+                    mine.length === 1 ? "" : "s"
+                  }${
+                    useHours
+                      ? `, ${hoursFmt(mine.reduce((s, e) => s + (e.hours ?? 0), 0))}h`
+                      : ""
+                  }`}
                   style={{ paddingLeft: 3 }}
                 >
                   <Avatar
@@ -210,11 +223,15 @@ export function OverviewView(p: ViewProps) {
           spark={sparkTasks}
         />
         <Tile
-          label="Hours logged"
-          value={compact(Math.round(hours))}
-          delta={pctChange(hours, prevHours)}
+          label={useHours ? "Hours logged" : "Tasks logged"}
+          value={compact(useHours ? Math.round(hours) : entries.length)}
+          delta={
+            useHours
+              ? pctChange(hours, prevHours)
+              : pctChange(entries.length, prevEntries.length)
+          }
           deltaLabel="vs previous period"
-          spark={sparkHours}
+          spark={useHours ? sparkHours : sparkTasks}
         />
         <Tile
           label="Projects touched"
@@ -244,7 +261,7 @@ export function OverviewView(p: ViewProps) {
             </button>
           }
         >
-          <TrendChart points={series} />
+          <TrendChart points={series} showHours={useHours} />
         </Card>
 
         <Card title="Status mix" sub={`Across ${entries.length} logged tasks`}>
@@ -270,8 +287,18 @@ export function OverviewView(p: ViewProps) {
               <span className="metric-l">tasks logged per day</span>
             </div>
             <div className="metric">
-              <span className="metric-v">{personDays ? hoursFmt(Math.round((hours / personDays) * 10) / 10) : "—"}</span>
-              <span className="metric-l">hours per person per day</span>
+              <span className="metric-v">
+                {personDays
+                  ? hoursFmt(
+                      Math.round(
+                        ((useHours ? hours : entries.length) / personDays) * 10
+                      ) / 10
+                    )
+                  : "—"}
+              </span>
+              <span className="metric-l">
+                {useHours ? "hours" : "tasks"} per person per day
+              </span>
             </div>
           </div>
         </Card>
@@ -279,15 +306,19 @@ export function OverviewView(p: ViewProps) {
 
       {/* ---- where the effort went ---- */}
       <div className="grid g-halves">
-        <Card title="Effort by project" sub="Hours logged — click a row to filter the board">
+        <Card
+          title="Effort by project"
+          sub={`${effortWord} logged — click a row to filter the board`}
+        >
           <BarList
             data={projectBars}
+            unit={unit}
             onSelect={(id) => id !== "__other" && p.onSelectProject(id)}
             activeId={p.activeProject === "all" ? null : p.activeProject}
           />
         </Card>
-        <Card title="Effort by discipline" sub="Hours logged">
-          <BarList data={disciplineBars} labelWidth={104} />
+        <Card title="Effort by discipline" sub={`${effortWord} logged`}>
+          <BarList data={disciplineBars} unit={unit} labelWidth={104} />
         </Card>
       </div>
 
@@ -367,7 +398,9 @@ function EntryRow({
         {e.note && <div className="feed-note">{e.note}</div>}
       </div>
       <div className="feed-side">
-        <span className="hours">{hoursFmt(e.hours)}h</span>
+        {typeof e.hours === "number" && e.hours > 0 && (
+          <span className="hours">{hoursFmt(e.hours)}h</span>
+        )}
         <StatusBadge status={e.status} />
       </div>
     </div>
@@ -380,18 +413,23 @@ function EntryRow({
 
 export function TeamView(p: ViewProps) {
   const { entries, members, projects, days, today, memberIndex } = p;
+  const useHours = hasHours(entries);
   const rolls = useMemo(
-    () => rollupMembers(entries, members, days).sort((a, b) => b.hours - a.hours),
+    () =>
+      rollupMembers(entries, members, days).sort(
+        (a, b) => b.hours - a.hours || b.tasks - a.tasks
+      ),
     [entries, members, days]
   );
-  const maxCell = heatScaleMax(rolls.flatMap((r) => r.perDay));
+  const cellsOf = (r: (typeof rolls)[number]) => (useHours ? r.perDay : r.perDayTasks);
+  const maxCell = heatScaleMax(rolls.flatMap(cellsOf));
 
   return (
     <div className="stack">
       <Card
         title="Who worked when"
-        sub={`Hours logged per person per day · ${days.length} days`}
-        action={<HeatScale />}
+        sub={`${useHours ? "Hours" : "Tasks"} logged per person per day · ${days.length} days`}
+        action={<HeatScale label={useHours ? "more hours" : "more tasks"} />}
       >
         <div className="heat" style={{ gridTemplateColumns: "auto 1fr" }}>
           {rolls.map((r) => (
@@ -404,7 +442,7 @@ export function TeamView(p: ViewProps) {
                 />
                 {r.member.name}
               </div>
-              <HeatRow values={r.perDay} days={days} max={maxCell} />
+              <HeatRow values={cellsOf(r)} days={days} max={maxCell} unit={useHours ? "h" : ""} />
             </div>
           ))}
           <div />
@@ -418,7 +456,7 @@ export function TeamView(p: ViewProps) {
           const topProjects = [...sumBy(
             entries.filter((e) => e.memberId === r.member.id),
             (e) => e.projectId,
-            (e) => e.hours
+            (e) => (useHours ? (e.hours ?? 0) : 1)
           ).entries()]
             .sort((a, b) => b[1] - a[1])
             .slice(0, 3);
@@ -435,7 +473,7 @@ export function TeamView(p: ViewProps) {
                   <div className="mcard-name">{r.member.name}</div>
                   <div className="mcard-role">{r.member.role}</div>
                 </div>
-                <Sparkline values={r.perDay.slice(-12)} />
+                <Sparkline values={cellsOf(r).slice(-12)} />
               </div>
 
               <div className="metric-row">
@@ -443,10 +481,12 @@ export function TeamView(p: ViewProps) {
                   <span className="metric-v">{r.tasks}</span>
                   <span className="metric-l">tasks</span>
                 </div>
-                <div className="metric">
-                  <span className="metric-v">{hoursFmt(r.hours)}</span>
-                  <span className="metric-l">hours</span>
-                </div>
+                {useHours && (
+                  <div className="metric">
+                    <span className="metric-v">{hoursFmt(r.hours)}</span>
+                    <span className="metric-l">hours</span>
+                  </div>
+                )}
                 <div className="metric">
                   <span className="metric-v">{r.projects.length}</span>
                   <span className="metric-l">projects</span>
@@ -502,7 +542,10 @@ export function TeamView(p: ViewProps) {
                 {topProjects.map(([pid, h]) => (
                   <button key={pid} className="chip" onClick={() => p.onSelectProject(pid)}>
                     {projectOf(projects, pid)?.short ?? pid}
-                    <b style={{ color: "var(--text-1)" }}>{hoursFmt(Math.round(h * 10) / 10)}h</b>
+                    <b style={{ color: "var(--text-1)" }}>
+                      {hoursFmt(Math.round(h * 10) / 10)}
+                      {useHours ? "h" : ""}
+                    </b>
                   </button>
                 ))}
               </div>
@@ -530,6 +573,7 @@ const PHASE_TONE: Record<string, string> = {
 
 export function ProjectsView(p: ViewProps) {
   const { entries, projects, members, today, memberIndex } = p;
+  const useHours = hasHours(entries);
   const rolls = useMemo(() => rollupProjects(entries, projects), [entries, projects]);
 
   if (!rolls.length) return <div className="card empty">No project activity in this range.</div>;
@@ -558,10 +602,12 @@ export function ProjectsView(p: ViewProps) {
             </div>
 
             <div className="metric-row">
-              <div className="metric">
-                <span className="metric-v">{hoursFmt(r.hours)}</span>
-                <span className="metric-l">hours</span>
-              </div>
+              {useHours && (
+                <div className="metric">
+                  <span className="metric-v">{hoursFmt(r.hours)}</span>
+                  <span className="metric-l">hours</span>
+                </div>
+              )}
               <div className="metric">
                 <span className="metric-v">{r.tasks}</span>
                 <span className="metric-l">tasks</span>
@@ -671,6 +717,7 @@ export function ProjectsView(p: ViewProps) {
 
 export function LogView(p: ViewProps & { mode: "feed" | "table"; setMode: (m: "feed" | "table") => void }) {
   const { entries, members, projects, today, mode, setMode } = p;
+  const useHours = hasHours(entries);
 
   const grouped = useMemo(() => {
     const m = new Map<string, Entry[]>();
@@ -712,7 +759,7 @@ export function LogView(p: ViewProps & { mode: "feed" | "table"; setMode: (m: "f
                 <th>Task</th>
                 <th>Discipline</th>
                 <th>Status</th>
-                <th className="num">Hours</th>
+                {useHours && <th className="num">Hours</th>}
               </tr>
             </thead>
             <tbody>
@@ -734,7 +781,7 @@ export function LogView(p: ViewProps & { mode: "feed" | "table"; setMode: (m: "f
                       {STATUS_LABEL[e.status]}
                     </span>
                   </td>
-                  <td className="num">{hoursFmt(e.hours)}</td>
+                  {useHours && <td className="num">{hoursFmt(e.hours ?? 0)}</td>}
                 </tr>
               ))}
             </tbody>
@@ -753,8 +800,12 @@ export function LogView(p: ViewProps & { mode: "feed" | "table"; setMode: (m: "f
                 {relativeDay(date, today)} · {fmtLong(date)}
               </span>
               <span style={{ fontWeight: 500, color: "var(--text-muted)" }}>
-                {list.length} task{list.length === 1 ? "" : "s"} ·{" "}
-                {hoursFmt(Math.round(list.reduce((s, e) => s + e.hours, 0) * 10) / 10)}h
+                {list.length} task{list.length === 1 ? "" : "s"}
+                {useHours
+                  ? ` · ${hoursFmt(
+                      Math.round(list.reduce((s, e) => s + (e.hours ?? 0), 0) * 10) / 10
+                    )}h`
+                  : ""}
               </span>
             </div>
             {list.map((e) => (

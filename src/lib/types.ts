@@ -2,7 +2,9 @@ export type TaskStatus = "done" | "in-progress" | "blocked" | "planned";
 
 export type Category =
   | "dev"
+  | "ops"
   | "art"
+  | "audio"
   | "design"
   | "qa"
   | "liveops"
@@ -38,7 +40,10 @@ export interface Entry {
   title: string;
   category: Category;
   status: TaskStatus;
-  hours: number;
+  /** Optional. Daily updates usually arrive as prose without time tracking, so
+   *  the board falls back to task counts whenever hours aren't recorded rather
+   *  than showing invented numbers. */
+  hours?: number;
   note?: string;
 }
 
@@ -83,7 +88,9 @@ export const STATUS_COLOR: Record<TaskStatus, string> = {
 
 export const CATEGORY_LABEL: Record<Category, string> = {
   dev: "Development",
+  ops: "Build & tooling",
   art: "Art",
+  audio: "Audio",
   design: "Design",
   qa: "QA",
   liveops: "Live ops",

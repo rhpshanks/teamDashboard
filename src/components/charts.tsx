@@ -38,10 +38,13 @@ export function TrendChart({
   points,
   height = 216,
   metric = "tasks",
+  showHours = true,
 }: {
   points: DayPoint[];
   height?: number;
   metric?: "tasks" | "hours";
+  /** Hidden when no entry in range records hours. */
+  showHours?: boolean;
 }) {
   const [ref, w] = useWidth<HTMLDivElement>();
   const [hover, setHover] = useState<number | null>(null);
@@ -194,10 +197,12 @@ export function TrendChart({
             </span>
             <b>{hp.tasks}</b>
           </div>
-          <div className="tooltip-row">
-            <span>Hours</span>
-            <b>{hoursFmt(hp.hours)}</b>
-          </div>
+          {showHours && (
+            <div className="tooltip-row">
+              <span>Hours</span>
+              <b>{hoursFmt(hp.hours)}</b>
+            </div>
+          )}
           <div className="tooltip-row">
             <span>People active</span>
             <b>{hp.people}</b>
@@ -448,13 +453,21 @@ export function HeatRow({
   values,
   days,
   max,
+  unit = "h",
   onHover,
 }: {
   values: number[];
   days: string[];
   max: number;
+  /** "h" when hours are recorded, "" when the cells count tasks instead. */
+  unit?: string;
   onHover?: (i: number | null) => void;
 }) {
+  const describe = (v: number) => {
+    if (v <= 0) return "no activity";
+    if (unit) return `${hoursFmt(v)}${unit} logged`;
+    return `${v} task${v === 1 ? "" : "s"} logged`;
+  };
   return (
     <div className="heat-row" onMouseLeave={() => onHover?.(null)}>
       {values.map((v, i) => (
@@ -462,7 +475,7 @@ export function HeatRow({
           key={days[i]}
           className="heat-cell"
           onMouseEnter={() => onHover?.(i)}
-          title={`${fmtLong(days[i])} — ${v > 0 ? `${hoursFmt(v)}h logged` : "no activity"}`}
+          title={`${fmtLong(days[i])} — ${describe(v)}`}
           style={{ background: RAMP[rampStep(v, max)] }}
         />
       ))}
@@ -470,14 +483,14 @@ export function HeatRow({
   );
 }
 
-export function HeatScale() {
+export function HeatScale({ label = "more hours" }: { label?: string }) {
   return (
     <div className="heat-scale">
       <span style={{ background: RAMP[0], border: "1px solid var(--border)" }} />
       {RAMP.slice(1).map((c, i) => (
         <span key={i} style={{ background: c }} />
       ))}
-      <span style={{ width: "auto", marginLeft: 4 }}>more hours</span>
+      <span style={{ width: "auto", marginLeft: 4 }}>{label}</span>
     </div>
   );
 }

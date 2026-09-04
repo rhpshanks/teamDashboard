@@ -1,66 +1,27 @@
 {
   "members": [
     {
-      "id": "m-alex",
-      "name": "Alex",
-      "role": "Lead Unity Developer",
-      "initials": "AL",
-      "disciplines": [
-        "dev"
-      ],
+      "id": "m-bilal",
+      "name": "Bilal Bin Sabir",
+      "role": "Developer",
+      "initials": "BI",
+      "disciplines": ["dev", "ops"],
       "active": true
     },
     {
-      "id": "m-sam",
-      "name": "Sam",
-      "role": "Unity Developer",
-      "initials": "SA",
-      "disciplines": [
-        "dev"
-      ],
+      "id": "m-usman",
+      "name": "Usman Shahid",
+      "role": "Artist & Generalist",
+      "initials": "US",
+      "disciplines": ["art", "design"],
       "active": true
     },
     {
-      "id": "m-noor",
-      "name": "Noor",
-      "role": "2D Artist",
-      "initials": "NO",
-      "disciplines": [
-        "art"
-      ],
-      "active": true
-    },
-    {
-      "id": "m-jordan",
-      "name": "Jordan",
-      "role": "Game Designer",
-      "initials": "JO",
-      "disciplines": [
-        "design",
-        "dev"
-      ],
-      "active": true
-    },
-    {
-      "id": "m-riley",
-      "name": "Riley",
-      "role": "QA & Live Ops",
-      "initials": "RI",
-      "disciplines": [
-        "qa",
-        "liveops"
-      ],
-      "active": true
-    },
-    {
-      "id": "m-zain",
-      "name": "Zain",
-      "role": "Marketing & Publishing",
-      "initials": "ZA",
-      "disciplines": [
-        "marketing",
-        "biz"
-      ],
+      "id": "m-asghar",
+      "name": "Asghar Saeed",
+      "role": "3D Modeler & Video Editor",
+      "initials": "AS",
+      "disciplines": ["art", "audio"],
       "active": true
     }
   ]

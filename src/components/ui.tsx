@@ -134,7 +134,7 @@ export function Tile({
             {Math.abs(delta).toFixed(0)}%{deltaLabel ? ` ${deltaLabel}` : ""}
           </span>
         ) : (
-          <span className="delta flat">{deltaLabel ?? ""}</span>
+          <span className="delta flat">no prior data</span>
         )}
         {spark && spark.length > 1 && <Sparkline values={spark} color={accent ?? "var(--series-1)"} />}
       </div>

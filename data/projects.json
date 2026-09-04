@@ -1,6 +1,39 @@
 {
   "projects": [
     {
+      "id": "pc-horror-game",
+      "name": "PC Horror Game",
+      "short": "PC Horror Game",
+      "genre": "Horror",
+      "downloads": null,
+      "phase": "in-development",
+      "bundleId": null,
+      "kind": "game",
+      "storeUrl": null
+    },
+    {
+      "id": "naval-clicker",
+      "name": "Naval Idle Clicker",
+      "short": "Naval Clicker",
+      "genre": "Idle / Clicker",
+      "downloads": null,
+      "phase": "in-development",
+      "bundleId": null,
+      "kind": "game",
+      "storeUrl": null
+    },
+    {
+      "id": "glitch-website",
+      "name": "Glitch Website",
+      "short": "Glitch Website",
+      "genre": "Studio",
+      "downloads": null,
+      "phase": "active",
+      "bundleId": null,
+      "kind": "workstream",
+      "storeUrl": null
+    },
+    {
       "id": "battle-order",
       "name": "Battle Order: Merge Defense TD",
       "short": "Battle Order",
