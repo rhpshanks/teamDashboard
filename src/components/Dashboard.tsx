@@ -15,10 +15,10 @@ type Tab = "overview" | "team" | "projects" | "log";
 type Range = 7 | 14 | 30 | "all";
 
 const TABS: { id: Tab; label: string }[] = [
-  { id: "overview", label: "Overview" },
+  { id: "overview", label: "Main" },
   { id: "team", label: "Team" },
   { id: "projects", label: "Projects" },
-  { id: "log", label: "Activity log" },
+  { id: "log", label: "Activities" },
 ];
 
 const RANGES: { id: Range; label: string }[] = [

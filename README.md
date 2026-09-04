@@ -79,10 +79,10 @@ The projects currently in flight (PC Horror Game, Naval Idle Clicker, Glitch Web
 
 ## What's on the board
 
-- **Overview** — today's headline number, who worked, stat tiles with period-over-period deltas, a daily activity trend, the status mix, and effort split by project and by discipline. Blocked work gets its own panel.
+- **Main** — today's headline number, who worked, stat tiles with period-over-period deltas, a daily activity trend, the status mix, and effort split by project and by discipline. Blocked work gets its own panel.
 - **Team** — a per-person / per-day activity heatmap, plus a card per person: tasks, projects, completion rate, and what they spent the most effort on.
 - **Projects** — a card per project: task counts, completion, contributors, last touched, and a link to the Play Store listing where the game is published.
-- **Activity log** — the full filterable feed, with a table view for reading or copying the raw numbers.
+- **Activities** — the full filterable feed, with a table view for reading or copying the raw numbers.
 
 Filters (range, person, project, status, search) apply across every tab. Clicking a project bar or a person chip filters the whole board. Light and dark themes follow the OS and can be toggled; the choice is remembered per browser.
 
@@ -107,4 +107,4 @@ Import this repository at [vercel.com/new](https://vercel.com/new). It's a stand
 
 Charts are hand-rolled SVG and CSS — no chart library — so the marks follow one spec: 2px lines, 4px rounded data-ends anchored to the baseline, 2px surface gaps between touching fills, ≥8px hover markers with a surface ring, and recessive hairline gridlines.
 
-Colour is assigned by the job it does. The activity trend is a single series, so bars and lines wear one hue and identity comes from the row label rather than a rainbow of ranks. The heatmap is a single-hue sequential ramp normalised to the 90th percentile, so one busy day doesn't flatten the rest. Task status uses a reserved status palette, and every status ships with a **distinct shape** as well as a colour — so the meaning survives colour-blindness, greyscale printing and forced-colors mode. Every chart has a table-view fallback in the Activity log tab.
+Colour is assigned by the job it does. The activity trend is a single series, so bars and lines wear one hue and identity comes from the row label rather than a rainbow of ranks. The heatmap is a single-hue sequential ramp normalised to the 90th percentile, so one busy day doesn't flatten the rest. Task status uses a reserved status palette, and every status ships with a **distinct shape** as well as a colour — so the meaning survives colour-blindness, greyscale printing and forced-colors mode. Every chart has a table-view fallback in the Activities tab.

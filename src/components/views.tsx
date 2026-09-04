@@ -741,14 +741,14 @@ export function LogView(p: ViewProps & { mode: "feed" | "table"; setMode: (m: "f
 
   if (!entries.length)
     return (
-      <Card title="Activity log" action={toggle}>
+      <Card title="Activities" action={toggle}>
         <div className="empty">No tasks match these filters.</div>
       </Card>
     );
 
   if (mode === "table")
     return (
-      <Card title="Activity log" sub={`${entries.length} tasks`} action={toggle} pad={false}>
+      <Card title="Activities" sub={`${entries.length} tasks`} action={toggle} pad={false}>
         <div className="tablewrap">
           <table className="data">
             <thead>
@@ -791,7 +791,7 @@ export function LogView(p: ViewProps & { mode: "feed" | "table"; setMode: (m: "f
     );
 
   return (
-    <Card title="Activity log" sub={`${entries.length} tasks`} action={toggle} pad={false}>
+    <Card title="Activities" sub={`${entries.length} tasks`} action={toggle} pad={false}>
       <div className="feed">
         {grouped.map(([date, list]) => (
           <div key={date}>
