@@ -116,6 +116,42 @@
       "title": "Assets for the horror game",
       "category": "art",
       "status": "in-progress"
+    },
+    {
+      "id": "e0014",
+      "date": "2026-09-04",
+      "memberId": "m-usman",
+      "projectId": "pc-horror-game",
+      "title": "Built the base layout and architecture for the Grandfather's Cabin",
+      "category": "art",
+      "status": "worked"
+    },
+    {
+      "id": "e0015",
+      "date": "2026-09-04",
+      "memberId": "m-usman",
+      "projectId": "pc-horror-game",
+      "title": "Modelled and textured interior props; completed full cabin set dressing",
+      "category": "art",
+      "status": "worked"
+    },
+    {
+      "id": "e0016",
+      "date": "2026-09-04",
+      "memberId": "m-usman",
+      "projectId": "pc-horror-game",
+      "title": "Placed interior lighting and baked lightmaps for performance",
+      "category": "art",
+      "status": "worked"
+    },
+    {
+      "id": "e0017",
+      "date": "2026-09-04",
+      "memberId": "m-usman",
+      "projectId": "pc-horror-game",
+      "title": "Delivered the complete Act 1 environment to the developer for integration",
+      "category": "art",
+      "status": "worked"
     }
   ]
 }
