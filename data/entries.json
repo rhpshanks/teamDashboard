@@ -152,6 +152,33 @@
       "title": "Delivered the complete Act 1 environment to the developer for integration",
       "category": "art",
       "status": "worked"
+    },
+    {
+      "id": "e0018",
+      "date": "2026-09-04",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Reviewed the Battle Order project",
+      "category": "dev",
+      "status": "worked"
+    },
+    {
+      "id": "e0019",
+      "date": "2026-09-04",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Adjusted the difficulty curve for the second level",
+      "category": "design",
+      "status": "worked"
+    },
+    {
+      "id": "e0020",
+      "date": "2026-09-04",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Implementing new characters",
+      "category": "dev",
+      "status": "in-progress"
     }
   ]
 }
