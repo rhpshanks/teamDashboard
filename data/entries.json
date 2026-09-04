@@ -179,6 +179,43 @@
       "title": "Implementing new characters",
       "category": "dev",
       "status": "in-progress"
+    },
+    {
+      "id": "e0021",
+      "date": "2026-09-04",
+      "memberId": "m-asghar",
+      "projectId": "glitch-website",
+      "title": "3D models for the Home, Portfolio, Games and Contact areas",
+      "category": "art",
+      "status": "worked"
+    },
+    {
+      "id": "e0022",
+      "date": "2026-09-04",
+      "memberId": "m-asghar",
+      "projectId": "glitch-website",
+      "title": "Added the main shapes and detailing for a consistent futuristic look",
+      "category": "art",
+      "status": "worked"
+    },
+    {
+      "id": "e0023",
+      "date": "2026-09-04",
+      "memberId": "m-asghar",
+      "projectId": "glitch-website",
+      "title": "Visual and interactive effects to be added later in code",
+      "category": "dev",
+      "status": "scheduled",
+      "note": "Glitch effects, futuristic screens, neon lights and other digital effects — layered on in code rather than baked into the 3D models."
+    },
+    {
+      "id": "e0024",
+      "date": "2026-09-04",
+      "memberId": "m-asghar",
+      "projectId": "glitch-website",
+      "title": "Improve the main centre platform with more detail and higher quality",
+      "category": "art",
+      "status": "scheduled"
     }
   ]
 }

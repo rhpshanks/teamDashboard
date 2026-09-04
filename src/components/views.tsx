@@ -395,7 +395,13 @@ function EntryRow({
             </>
           )}
         </div>
-        {e.note && <div className="feed-note">{e.note}</div>}
+        {/* The callout rule follows the entry's status — a note on a scheduled
+            item shouldn't read as an alarm. */}
+        {e.note && (
+          <div className="feed-note" style={{ borderLeftColor: STATUS_COLOR[e.status] }}>
+            {e.note}
+          </div>
+        )}
       </div>
       <div className="feed-side">
         {typeof e.hours === "number" && e.hours > 0 && (
