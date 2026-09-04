@@ -11,7 +11,7 @@ import { dirname, join } from "node:path";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const read = (f) => JSON.parse(readFileSync(join(root, "data", f), "utf8"));
 
-const STATUSES = ["done", "in-progress", "blocked", "planned"];
+const STATUSES = ["worked", "in-progress", "scheduled", "blocked"];
 const CATEGORIES = ["dev", "ops", "art", "audio", "design", "qa", "liveops", "marketing", "biz"];
 
 const errors = [];

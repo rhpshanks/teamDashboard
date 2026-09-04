@@ -368,7 +368,7 @@ export function StatusMix({
                 style={{
                   fontSize: 11.5,
                   fontWeight: 650,
-                  color: s.status === "planned" ? "var(--text-1)" : "#fff",
+                  color: s.status === "scheduled" ? "var(--text-1)" : "#fff",
                   fontVariantNumeric: "tabular-nums",
                 }}
               >

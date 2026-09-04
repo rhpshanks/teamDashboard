@@ -43,9 +43,11 @@ npm run check && git add data && git commit -m "Log for 2026-09-05" && git push
 | `memberId` | Must match an `id` in `team.json` |
 | `projectId` | Must match an `id` in `projects.json` |
 | `category` | `dev` · `ops` · `art` · `audio` · `design` · `qa` · `liveops` · `marketing` · `biz` |
-| `status` | `done` · `in-progress` · `blocked` · `planned` |
+| `status` | `worked` · `in-progress` · `scheduled` — plus `blocked` for the exception case |
 | `hours` | **Optional.** Positive number; halves are fine (`2.5`) |
 | `note` | Optional. Worth filling in for anything `blocked` |
+
+**On `status`:** the day-to-day vocabulary is three tags — `worked` (touched and finished), `in-progress` (still open), `scheduled` (lined up, not started). `blocked` is a fourth, used only when something is genuinely stuck; it drives the "Blocked" panel and the open-blockers tile, both of which stay quiet when nothing carries it.
 
 **On `hours`:** updates usually arrive as prose with no time tracking, so the board measures effort in **task counts** by default and never invents numbers. Record `hours` on entries and it switches to hours automatically — the tiles, effort bars, heatmap and log all relabel themselves. It's all-or-nothing per view: hours are used as soon as any entry in the visible range has them.
 

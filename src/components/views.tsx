@@ -81,8 +81,8 @@ export function OverviewView(p: ViewProps) {
   const todayPeople = [...new Set(todayEntries.map((e) => e.memberId))];
   const todayProjects = [...new Set(todayEntries.map((e) => e.projectId))];
 
-  const done = entries.filter((e) => e.status === "done").length;
-  const prevDone = prevEntries.filter((e) => e.status === "done").length;
+  const worked = entries.filter((e) => e.status === "worked").length;
+  const prevWorked = prevEntries.filter((e) => e.status === "worked").length;
   const hours = entries.reduce((s, e) => s + (e.hours ?? 0), 0);
   const prevHours = prevEntries.reduce((s, e) => s + (e.hours ?? 0), 0);
   const blockers = entries.filter((e) => e.status === "blocked");
@@ -216,9 +216,9 @@ export function OverviewView(p: ViewProps) {
       {/* ---- stat tiles ---- */}
       <div className="grid g-tiles">
         <Tile
-          label="Tasks completed"
-          value={compact(done)}
-          delta={pctChange(done, prevDone)}
+          label="Tasks worked"
+          value={compact(worked)}
+          delta={pctChange(worked, prevWorked)}
           deltaLabel="vs previous period"
           spark={sparkTasks}
         />
@@ -278,9 +278,9 @@ export function OverviewView(p: ViewProps) {
           >
             <div className="metric">
               <span className="metric-v">
-                {entries.length ? Math.round((done / entries.length) * 100) : 0}%
+                {entries.length ? Math.round((worked / entries.length) * 100) : 0}%
               </span>
-              <span className="metric-l">completed</span>
+              <span className="metric-l">worked</span>
             </div>
             <div className="metric">
               <span className="metric-v">{(entries.length / days.length).toFixed(1)}</span>
@@ -493,9 +493,9 @@ export function TeamView(p: ViewProps) {
                 </div>
                 <div className="metric">
                   <span className="metric-v">
-                    {r.tasks ? Math.round((r.done / total) * 100) : 0}%
+                    {r.tasks ? Math.round((r.worked / total) * 100) : 0}%
                   </span>
-                  <span className="metric-l">completed</span>
+                  <span className="metric-l">worked</span>
                 </div>
               </div>
 
@@ -503,13 +503,13 @@ export function TeamView(p: ViewProps) {
                 <div className="meter">
                   {STATUS_ORDER.map((s) => {
                     const n =
-                      s === "done"
-                        ? r.done
+                      s === "worked"
+                        ? r.worked
                         : s === "in-progress"
                           ? r.active
                           : s === "blocked"
                             ? r.blocked
-                            : r.tasks - r.done - r.active - r.blocked;
+                            : r.tasks - r.worked - r.active - r.blocked;
                     return n > 0 ? (
                       <i
                         key={s}
@@ -532,7 +532,7 @@ export function TeamView(p: ViewProps) {
                   )}
                   {r.active === 0 && r.blocked === 0 && (
                     <span className="legend-item">
-                      <StatusIcon status="done" /> All logged work complete
+                      <StatusIcon status="worked" /> Nothing in progress or blocked
                     </span>
                   )}
                 </div>
@@ -582,7 +582,7 @@ export function ProjectsView(p: ViewProps) {
     <div className="grid g-cards">
       {rolls.map((r) => {
         const total = r.tasks || 1;
-        const planned = r.tasks - r.done - r.active - r.blocked;
+        const scheduled = r.tasks - r.worked - r.active - r.blocked;
         return (
           <div className="card mcard" key={r.project.id}>
             <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
@@ -613,15 +613,15 @@ export function ProjectsView(p: ViewProps) {
                 <span className="metric-l">tasks</span>
               </div>
               <div className="metric">
-                <span className="metric-v">{Math.round((r.done / total) * 100)}%</span>
-                <span className="metric-l">completed</span>
+                <span className="metric-v">{Math.round((r.worked / total) * 100)}%</span>
+                <span className="metric-l">worked</span>
               </div>
             </div>
 
             <div>
               <div className="meter">
-                {r.done > 0 && (
-                  <i style={{ width: `${(r.done / total) * 100}%`, background: STATUS_COLOR.done }} />
+                {r.worked > 0 && (
+                  <i style={{ width: `${(r.worked / total) * 100}%`, background: STATUS_COLOR.worked }} />
                 )}
                 {r.active > 0 && (
                   <i style={{ width: `${(r.active / total) * 100}%`, background: STATUS_COLOR["in-progress"] }} />
@@ -629,13 +629,13 @@ export function ProjectsView(p: ViewProps) {
                 {r.blocked > 0 && (
                   <i style={{ width: `${(r.blocked / total) * 100}%`, background: STATUS_COLOR.blocked }} />
                 )}
-                {planned > 0 && (
-                  <i style={{ width: `${(planned / total) * 100}%`, background: STATUS_COLOR.planned }} />
+                {scheduled > 0 && (
+                  <i style={{ width: `${(scheduled / total) * 100}%`, background: STATUS_COLOR.scheduled }} />
                 )}
               </div>
               <div className="legend" style={{ paddingTop: 8, gap: 10 }}>
                 <span className="legend-item">
-                  <StatusIcon status="done" /> {r.done}
+                  <StatusIcon status="worked" /> {r.worked}
                 </span>
                 {r.active > 0 && (
                   <span className="legend-item">
@@ -647,9 +647,9 @@ export function ProjectsView(p: ViewProps) {
                     <StatusIcon status="blocked" /> {r.blocked}
                   </span>
                 )}
-                {planned > 0 && (
+                {scheduled > 0 && (
                   <span className="legend-item">
-                    <StatusIcon status="planned" /> {planned}
+                    <StatusIcon status="scheduled" /> {scheduled}
                   </span>
                 )}
               </div>

@@ -7,7 +7,7 @@
       "projectId": "puzzle-warrior",
       "title": "Delivered publishing build with the reported bugs resolved",
       "category": "dev",
-      "status": "done"
+      "status": "worked"
     },
     {
       "id": "e0002",
@@ -16,7 +16,7 @@
       "projectId": "naval-clicker",
       "title": "Delivered idle clicker build to Faisal",
       "category": "dev",
-      "status": "done"
+      "status": "worked"
     },
     {
       "id": "e0003",
@@ -25,7 +25,7 @@
       "projectId": "pc-horror-game",
       "title": "Resolved Git LFS issues on the repository",
       "category": "ops",
-      "status": "done"
+      "status": "worked"
     },
     {
       "id": "e0004",
@@ -43,7 +43,7 @@
       "projectId": "pc-horror-game",
       "title": "Set up the Graveyard area within the game environment",
       "category": "art",
-      "status": "done"
+      "status": "worked"
     },
     {
       "id": "e0006",
@@ -52,7 +52,7 @@
       "projectId": "pc-horror-game",
       "title": "Fixed Unity Adaptive Probe Volumes not calculating properly",
       "category": "art",
-      "status": "done"
+      "status": "worked"
     },
     {
       "id": "e0007",
@@ -70,7 +70,7 @@
       "projectId": "pc-horror-game",
       "title": "Baked lightmaps, reflection probes and light probes for lighting and performance",
       "category": "art",
-      "status": "done"
+      "status": "worked"
     },
     {
       "id": "e0009",
@@ -79,7 +79,7 @@
       "projectId": "pc-horror-game",
       "title": "Created the exterior concept for the Bashali",
       "category": "art",
-      "status": "done"
+      "status": "worked"
     },
     {
       "id": "e0010",

@@ -9,7 +9,7 @@ import { Sparkline } from "./charts";
 export function StatusIcon({ status, size = 12 }: { status: TaskStatus; size?: number }) {
   const c = STATUS_COLOR[status];
   const common = { width: size, height: size, viewBox: "0 0 12 12", "aria-hidden": true as const };
-  if (status === "done")
+  if (status === "worked")
     return (
       <svg {...common}>
         <circle cx="6" cy="6" r="6" fill={c} />

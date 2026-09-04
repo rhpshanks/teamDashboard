@@ -1,4 +1,7 @@
-export type TaskStatus = "done" | "in-progress" | "blocked" | "planned";
+/** The vocabulary the daily update uses. "blocked" is the exception flag —
+ *  it is not part of the everyday three, but keeps its panel and tile for the
+ *  days something is genuinely stuck. */
+export type TaskStatus = "worked" | "in-progress" | "scheduled" | "blocked";
 
 export type Category =
   | "dev"
@@ -64,26 +67,26 @@ export interface DashboardData {
 }
 
 export const STATUS_ORDER: TaskStatus[] = [
-  "done",
+  "worked",
   "in-progress",
+  "scheduled",
   "blocked",
-  "planned",
 ];
 
 export const STATUS_LABEL: Record<TaskStatus, string> = {
-  done: "Done",
+  worked: "Worked",
   "in-progress": "In progress",
+  scheduled: "Scheduled",
   blocked: "Blocked",
-  planned: "Planned",
 };
 
-/** Colour by role: done = status good, blocked = status critical,
- *  in-progress = the accent series hue, planned = recessive muted. */
+/** Colour by role: worked = status good, blocked = status critical,
+ *  in-progress = the accent series hue, scheduled = recessive muted. */
 export const STATUS_COLOR: Record<TaskStatus, string> = {
-  done: "var(--st-good)",
+  worked: "var(--st-good)",
   "in-progress": "var(--series-1)",
+  scheduled: "var(--axis)",
   blocked: "var(--st-critical)",
-  planned: "var(--axis)",
 };
 
 export const CATEGORY_LABEL: Record<Category, string> = {

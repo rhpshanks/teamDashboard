@@ -92,19 +92,19 @@ export interface DayPoint {
   date: string;
   tasks: number;
   hours: number;
-  done: number;
+  worked: number;
   people: number;
 }
 
 export function byDay(entries: Entry[], days: string[]): DayPoint[] {
-  const map = new Map<string, { tasks: number; hours: number; done: number; people: Set<string> }>();
-  for (const d of days) map.set(d, { tasks: 0, hours: 0, done: 0, people: new Set() });
+  const map = new Map<string, { tasks: number; hours: number; worked: number; people: Set<string> }>();
+  for (const d of days) map.set(d, { tasks: 0, hours: 0, worked: 0, people: new Set() });
   for (const e of entries) {
     const slot = map.get(e.date);
     if (!slot) continue;
     slot.tasks += 1;
     slot.hours += hrs(e);
-    if (e.status === "done") slot.done += 1;
+    if (e.status === "worked") slot.worked += 1;
     slot.people.add(e.memberId);
   }
   return days.map((d) => {
@@ -113,7 +113,7 @@ export function byDay(entries: Entry[], days: string[]): DayPoint[] {
       date: d,
       tasks: s.tasks,
       hours: Math.round(s.hours * 10) / 10,
-      done: s.done,
+      worked: s.worked,
       people: s.people.size,
     };
   });
@@ -138,7 +138,7 @@ export function sumBy<T>(items: T[], key: (t: T) => string, value: (t: T) => num
 }
 
 export function statusCounts(entries: Entry[]): Record<TaskStatus, number> {
-  const out = { done: 0, "in-progress": 0, blocked: 0, planned: 0 } as Record<TaskStatus, number>;
+  const out = { worked: 0, "in-progress": 0, scheduled: 0, blocked: 0 } as Record<TaskStatus, number>;
   for (const e of entries) out[e.status] += 1;
   return out;
 }
@@ -147,7 +147,7 @@ export interface ProjectRoll {
   project: Project;
   tasks: number;
   hours: number;
-  done: number;
+  worked: number;
   blocked: number;
   active: number;
   members: string[];
@@ -164,7 +164,7 @@ export function rollupProjects(
       project: p,
       tasks: 0,
       hours: 0,
-      done: 0,
+      worked: 0,
       blocked: 0,
       active: 0,
       members: [],
@@ -177,7 +177,7 @@ export function rollupProjects(
     if (!r) continue;
     r.tasks += 1;
     r.hours += hrs(e);
-    if (e.status === "done") r.done += 1;
+    if (e.status === "worked") r.worked += 1;
     if (e.status === "blocked") r.blocked += 1;
     if (e.status === "in-progress") r.active += 1;
     if (!r.lastTouched || e.date > r.lastTouched) r.lastTouched = e.date;
@@ -195,7 +195,7 @@ export interface MemberRoll {
   member: Member;
   tasks: number;
   hours: number;
-  done: number;
+  worked: number;
   blocked: number;
   active: number;
   projects: string[];
@@ -229,7 +229,7 @@ export function rollupMembers(
       member: m,
       tasks: mine.length,
       hours: Math.round(mine.reduce((s, e) => s + hrs(e), 0) * 10) / 10,
-      done: mine.filter((e) => e.status === "done").length,
+      worked: mine.filter((e) => e.status === "worked").length,
       blocked: mine.filter((e) => e.status === "blocked").length,
       active: mine.filter((e) => e.status === "in-progress").length,
       projects,
