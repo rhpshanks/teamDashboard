@@ -216,6 +216,69 @@
       "title": "Improve the main centre platform with more detail and higher quality",
       "category": "art",
       "status": "scheduled"
+    },
+    {
+      "id": "e0025",
+      "date": "2026-09-05",
+      "memberId": "m-asghar",
+      "projectId": "glitch-website",
+      "title": "Main centre platform for the Glitch webpage",
+      "category": "art",
+      "status": "worked"
+    },
+    {
+      "id": "e0026",
+      "date": "2026-09-05",
+      "memberId": "m-asghar",
+      "projectId": "store-aso",
+      "title": "Store listing assets",
+      "category": "art",
+      "status": "worked"
+    },
+    {
+      "id": "e0027",
+      "date": "2026-09-05",
+      "memberId": "m-usman",
+      "projectId": "pc-horror-game",
+      "title": "Character work for the horror game",
+      "category": "art",
+      "status": "worked"
+    },
+    {
+      "id": "e0028",
+      "date": "2026-09-05",
+      "memberId": "m-usman",
+      "projectId": "battle-order",
+      "title": "UI screen for Battle Order",
+      "category": "art",
+      "status": "worked"
+    },
+    {
+      "id": "e0029",
+      "date": "2026-09-05",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Increased button sizes and adjusted button placement",
+      "category": "dev",
+      "status": "worked"
+    },
+    {
+      "id": "e0030",
+      "date": "2026-09-05",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Main menu improvements",
+      "category": "dev",
+      "status": "worked"
+    },
+    {
+      "id": "e0031",
+      "date": "2026-09-05",
+      "memberId": "m-bilal",
+      "projectId": "pc-horror-game",
+      "title": "Tested the horror game assets Usman delivered",
+      "category": "qa",
+      "status": "worked"
     }
   ]
 }
