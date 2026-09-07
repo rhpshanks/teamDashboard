@@ -206,7 +206,7 @@
       "title": "Visual and interactive effects to be added later in code",
       "category": "dev",
       "status": "scheduled",
-      "note": "Glitch effects, futuristic screens, neon lights and other digital effects — layered on in code rather than baked into the 3D models."
+      "note": "Glitch effects, futuristic screens, neon lights and other digital effects \u2014 layered on in code rather than baked into the 3D models."
     },
     {
       "id": "e0024",
@@ -219,7 +219,7 @@
     },
     {
       "id": "e0025",
-      "date": "2026-09-05",
+      "date": "2026-09-07",
       "memberId": "m-asghar",
       "projectId": "glitch-website",
       "title": "Main centre platform for the Glitch webpage",
@@ -228,7 +228,7 @@
     },
     {
       "id": "e0026",
-      "date": "2026-09-05",
+      "date": "2026-09-07",
       "memberId": "m-asghar",
       "projectId": "store-aso",
       "title": "Store listing assets",
@@ -237,7 +237,7 @@
     },
     {
       "id": "e0027",
-      "date": "2026-09-05",
+      "date": "2026-09-07",
       "memberId": "m-usman",
       "projectId": "pc-horror-game",
       "title": "Character work for the horror game",
@@ -246,7 +246,7 @@
     },
     {
       "id": "e0028",
-      "date": "2026-09-05",
+      "date": "2026-09-07",
       "memberId": "m-usman",
       "projectId": "battle-order",
       "title": "UI screen for Battle Order",
@@ -255,7 +255,7 @@
     },
     {
       "id": "e0029",
-      "date": "2026-09-05",
+      "date": "2026-09-07",
       "memberId": "m-bilal",
       "projectId": "battle-order",
       "title": "Increased button sizes and adjusted button placement",
@@ -264,7 +264,7 @@
     },
     {
       "id": "e0030",
-      "date": "2026-09-05",
+      "date": "2026-09-07",
       "memberId": "m-bilal",
       "projectId": "battle-order",
       "title": "Main menu improvements",
@@ -273,7 +273,7 @@
     },
     {
       "id": "e0031",
-      "date": "2026-09-05",
+      "date": "2026-09-07",
       "memberId": "m-bilal",
       "projectId": "pc-horror-game",
       "title": "Tested the horror game assets Usman delivered",
