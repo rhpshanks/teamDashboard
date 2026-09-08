@@ -279,6 +279,120 @@
       "title": "Tested the horror game assets Usman delivered",
       "category": "qa",
       "status": "worked"
+    },
+    {
+      "id": "e0032",
+      "date": "2026-09-08",
+      "memberId": "m-asghar",
+      "projectId": "battle-order",
+      "title": "Battle Order trailer scripting and storyboarding",
+      "category": "marketing",
+      "status": "worked"
+    },
+    {
+      "id": "e0033",
+      "date": "2026-09-08",
+      "memberId": "m-asghar",
+      "projectId": "battle-order",
+      "title": "Generated every storyboard scene as a 16:9 image",
+      "category": "marketing",
+      "status": "worked",
+      "note": "All scenes generated."
+    },
+    {
+      "id": "e0034",
+      "date": "2026-09-08",
+      "memberId": "m-asghar",
+      "projectId": "battle-order",
+      "title": "Trailer video generation from the generated scenes",
+      "category": "marketing",
+      "status": "scheduled",
+      "note": "Next step after the stills; expected to start tomorrow."
+    },
+    {
+      "id": "e0035",
+      "date": "2026-09-08",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Improved the tutorial panel UI",
+      "category": "dev",
+      "status": "worked"
+    },
+    {
+      "id": "e0036",
+      "date": "2026-09-08",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Adjusted the character collider issue",
+      "category": "dev",
+      "status": "worked"
+    },
+    {
+      "id": "e0037",
+      "date": "2026-09-08",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Fixed the bottom button slider issue",
+      "category": "dev",
+      "status": "worked"
+    },
+    {
+      "id": "e0038",
+      "date": "2026-09-08",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Generate 100 levels on a linear difficulty curve",
+      "category": "design",
+      "status": "in-progress",
+      "note": "Held up until a workable Unity MCP is available."
+    },
+    {
+      "id": "e0039",
+      "date": "2026-09-08",
+      "memberId": "m-bilal",
+      "projectId": "dev-tooling",
+      "title": "Surveyed third-party MCP servers for Unity",
+      "category": "ops",
+      "status": "worked",
+      "note": "Aura ruled out - trial expired."
+    },
+    {
+      "id": "e0040",
+      "date": "2026-09-08",
+      "memberId": "m-bilal",
+      "projectId": "dev-tooling",
+      "title": "Trialled Unity-MCP (IvanMurzak)",
+      "category": "ops",
+      "status": "worked",
+      "note": "Did not work - problems with the Claude connector."
+    },
+    {
+      "id": "e0041",
+      "date": "2026-09-08",
+      "memberId": "m-bilal",
+      "projectId": "dev-tooling",
+      "title": "Trialled the CoPlay MCP",
+      "category": "ops",
+      "status": "worked",
+      "note": "Integrated, but it does not expose LLM access for the Sonnet model in use."
+    },
+    {
+      "id": "e0042",
+      "date": "2026-09-08",
+      "memberId": "m-usman",
+      "projectId": "pc-horror-game",
+      "title": "Horror game naming",
+      "category": "design",
+      "status": "worked"
+    },
+    {
+      "id": "e0043",
+      "date": "2026-09-08",
+      "memberId": "m-usman",
+      "projectId": "pc-horror-game",
+      "title": "Horror game character work",
+      "category": "art",
+      "status": "worked"
     }
   ]
 }

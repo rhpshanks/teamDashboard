@@ -34,6 +34,17 @@
       "storeUrl": null
     },
     {
+      "id": "dev-tooling",
+      "name": "Developer Tooling & Automation",
+      "short": "Dev Tooling",
+      "genre": "Internal",
+      "downloads": null,
+      "phase": "active",
+      "bundleId": null,
+      "kind": "workstream",
+      "storeUrl": null
+    },
+    {
       "id": "battle-order",
       "name": "Battle Order: Merge Defense TD",
       "short": "Battle Order",
