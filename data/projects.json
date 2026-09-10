@@ -1,9 +1,9 @@
 {
   "projects": [
     {
-      "id": "pc-horror-game",
-      "name": "PC Horror Game",
-      "short": "PC Horror Game",
+      "id": "kalasha",
+      "name": "Kalasha",
+      "short": "Kalasha",
       "genre": "Horror",
       "downloads": null,
       "phase": "in-development",

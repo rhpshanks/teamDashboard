@@ -22,7 +22,7 @@
       "id": "e0003",
       "date": "2026-09-03",
       "memberId": "m-bilal",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Resolved Git LFS issues on the repository",
       "category": "ops",
       "status": "worked"
@@ -31,7 +31,7 @@
       "id": "e0004",
       "date": "2026-09-03",
       "memberId": "m-usman",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Prop scaling issues across the environment",
       "category": "art",
       "status": "worked"
@@ -40,7 +40,7 @@
       "id": "e0005",
       "date": "2026-09-03",
       "memberId": "m-usman",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Set up the Graveyard area within the game environment",
       "category": "art",
       "status": "worked"
@@ -49,7 +49,7 @@
       "id": "e0006",
       "date": "2026-09-03",
       "memberId": "m-usman",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Fixed Unity Adaptive Probe Volumes not calculating properly",
       "category": "art",
       "status": "worked"
@@ -58,7 +58,7 @@
       "id": "e0007",
       "date": "2026-09-03",
       "memberId": "m-usman",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Unity GPU Lightmapper issues after the HDRP conversion",
       "category": "art",
       "status": "in-progress"
@@ -67,7 +67,7 @@
       "id": "e0008",
       "date": "2026-09-03",
       "memberId": "m-usman",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Baked lightmaps, reflection probes and light probes for lighting and performance",
       "category": "art",
       "status": "worked"
@@ -76,7 +76,7 @@
       "id": "e0009",
       "date": "2026-09-03",
       "memberId": "m-usman",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Created the exterior concept for the Bashali",
       "category": "art",
       "status": "worked"
@@ -85,7 +85,7 @@
       "id": "e0010",
       "date": "2026-09-03",
       "memberId": "m-usman",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Started the interior environment for the Grandfather's Cabin",
       "category": "art",
       "status": "in-progress"
@@ -112,7 +112,7 @@
       "id": "e0013",
       "date": "2026-09-03",
       "memberId": "m-asghar",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Assets for the horror game",
       "category": "art",
       "status": "in-progress"
@@ -121,7 +121,7 @@
       "id": "e0014",
       "date": "2026-09-04",
       "memberId": "m-usman",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Built the base layout and architecture for the Grandfather's Cabin",
       "category": "art",
       "status": "worked"
@@ -130,7 +130,7 @@
       "id": "e0015",
       "date": "2026-09-04",
       "memberId": "m-usman",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Modelled and textured interior props; completed full cabin set dressing",
       "category": "art",
       "status": "worked"
@@ -139,7 +139,7 @@
       "id": "e0016",
       "date": "2026-09-04",
       "memberId": "m-usman",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Placed interior lighting and baked lightmaps for performance",
       "category": "art",
       "status": "worked"
@@ -148,7 +148,7 @@
       "id": "e0017",
       "date": "2026-09-04",
       "memberId": "m-usman",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Delivered the complete Act 1 environment to the developer for integration",
       "category": "art",
       "status": "worked"
@@ -239,7 +239,7 @@
       "id": "e0027",
       "date": "2026-09-07",
       "memberId": "m-usman",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Character work for the horror game",
       "category": "art",
       "status": "worked"
@@ -275,7 +275,7 @@
       "id": "e0031",
       "date": "2026-09-07",
       "memberId": "m-bilal",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Tested the horror game assets Usman delivered",
       "category": "qa",
       "status": "worked"
@@ -380,7 +380,7 @@
       "id": "e0042",
       "date": "2026-09-08",
       "memberId": "m-usman",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Horror game naming",
       "category": "design",
       "status": "worked"
@@ -389,10 +389,83 @@
       "id": "e0043",
       "date": "2026-09-08",
       "memberId": "m-usman",
-      "projectId": "pc-horror-game",
+      "projectId": "kalasha",
       "title": "Horror game character work",
       "category": "art",
       "status": "worked"
+    },
+    {
+      "id": "e0044",
+      "date": "2026-09-09",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Added in-app purchases to the shop",
+      "category": "dev",
+      "status": "worked"
+    },
+    {
+      "id": "e0045",
+      "date": "2026-09-09",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Created the linear level difficulty curve",
+      "category": "design",
+      "status": "worked"
+    },
+    {
+      "id": "e0046",
+      "date": "2026-09-09",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Bottom bar button snapping issue",
+      "category": "dev",
+      "status": "worked"
+    },
+    {
+      "id": "e0047",
+      "date": "2026-09-09",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Add new boosters",
+      "category": "dev",
+      "status": "in-progress"
+    },
+    {
+      "id": "e0048",
+      "date": "2026-09-09",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Save system for IAPs and consumables",
+      "category": "dev",
+      "status": "in-progress"
+    },
+    {
+      "id": "e0049",
+      "date": "2026-09-09",
+      "memberId": "m-asghar",
+      "projectId": "battle-order",
+      "title": "Battle Order trailer video",
+      "category": "marketing",
+      "status": "worked"
+    },
+    {
+      "id": "e0050",
+      "date": "2026-09-09",
+      "memberId": "m-usman",
+      "projectId": "kalasha",
+      "title": "Symbols for the game",
+      "category": "art",
+      "status": "worked"
+    },
+    {
+      "id": "e0051",
+      "date": "2026-09-09",
+      "memberId": "m-usman",
+      "projectId": "kalasha",
+      "title": "Settled on Kalasha as the game name",
+      "category": "design",
+      "status": "worked",
+      "note": "The horror game is now named Kalasha; the project is renamed to match."
     }
   ]
 }
