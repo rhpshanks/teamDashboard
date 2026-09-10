@@ -466,6 +466,60 @@
       "category": "design",
       "status": "worked",
       "note": "The horror game is now named Kalasha; the project is renamed to match."
+    },
+    {
+      "id": "e0052",
+      "date": "2026-09-10",
+      "memberId": "m-usman",
+      "projectId": "kalasha",
+      "title": "Symbol variations",
+      "category": "art",
+      "status": "worked"
+    },
+    {
+      "id": "e0053",
+      "date": "2026-09-10",
+      "memberId": "m-usman",
+      "projectId": "kalasha",
+      "title": "Three-dimensional main menu scene",
+      "category": "art",
+      "status": "worked"
+    },
+    {
+      "id": "e0054",
+      "date": "2026-09-10",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Bottom bar adjustment",
+      "category": "dev",
+      "status": "worked"
+    },
+    {
+      "id": "e0055",
+      "date": "2026-09-10",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Adjusted the in-app purchase UI to the currently available UI",
+      "category": "dev",
+      "status": "worked"
+    },
+    {
+      "id": "e0056",
+      "date": "2026-09-10",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Linear increase across the level difficulty curve",
+      "category": "design",
+      "status": "worked"
+    },
+    {
+      "id": "e0057",
+      "date": "2026-09-10",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Added new heroes",
+      "category": "dev",
+      "status": "worked"
     }
   ]
 }
