@@ -520,6 +520,78 @@
       "title": "Added new heroes",
       "category": "dev",
       "status": "worked"
+    },
+    {
+      "id": "e0058",
+      "date": "2026-09-11",
+      "memberId": "m-usman",
+      "projectId": "kalasha",
+      "title": "Main menu scene",
+      "category": "art",
+      "status": "worked"
+    },
+    {
+      "id": "e0059",
+      "date": "2026-09-11",
+      "memberId": "m-bilal",
+      "projectId": "battle-order",
+      "title": "Battle Order build",
+      "category": "dev",
+      "status": "worked"
+    },
+    {
+      "id": "e0060",
+      "date": "2026-09-11",
+      "memberId": "m-asghar",
+      "projectId": "battle-order",
+      "title": "Battle Order trailer video",
+      "category": "marketing",
+      "status": "worked"
+    },
+    {
+      "id": "e0061",
+      "date": "2026-09-14",
+      "memberId": "m-usman",
+      "projectId": "kalasha",
+      "title": "Start screen UI",
+      "category": "art",
+      "status": "worked"
+    },
+    {
+      "id": "e0062",
+      "date": "2026-09-14",
+      "memberId": "m-bilal",
+      "projectId": "glitch-website",
+      "title": "Glitch website development",
+      "category": "dev",
+      "status": "worked"
+    },
+    {
+      "id": "e0063",
+      "date": "2026-09-14",
+      "memberId": "m-bilal",
+      "projectId": "vector-gaming-website",
+      "title": "Vector Gaming website development",
+      "category": "dev",
+      "status": "worked"
+    },
+    {
+      "id": "e0064",
+      "date": "2026-09-14",
+      "memberId": "m-asghar",
+      "projectId": "studio-ops",
+      "title": "Uploaded every game's characters to the shared folder",
+      "category": "ops",
+      "status": "worked"
+    },
+    {
+      "id": "e0065",
+      "date": "2026-09-14",
+      "memberId": "m-asghar",
+      "projectId": "glitch-website",
+      "title": "Reduced triangle counts on the Glitch website assets",
+      "category": "art",
+      "status": "worked"
     }
   ]
 }

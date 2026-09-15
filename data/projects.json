@@ -45,6 +45,28 @@
       "storeUrl": null
     },
     {
+      "id": "vector-gaming-website",
+      "name": "Vector Gaming Website",
+      "short": "Vector Gaming Site",
+      "genre": "Web",
+      "downloads": null,
+      "phase": "active",
+      "bundleId": null,
+      "kind": "workstream",
+      "storeUrl": null
+    },
+    {
+      "id": "studio-ops",
+      "name": "Studio Operations",
+      "short": "Studio Ops",
+      "genre": "Internal",
+      "downloads": null,
+      "phase": "active",
+      "bundleId": null,
+      "kind": "workstream",
+      "storeUrl": null
+    },
+    {
       "id": "battle-order",
       "name": "Battle Order: Merge Defense TD",
       "short": "Battle Order",
